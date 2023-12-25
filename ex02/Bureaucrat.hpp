@@ -14,9 +14,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -40,7 +40,8 @@ class Bureaucrat
 		void			upGrade(int i);
 		void			downGrade(void);
 		void			downGrade(int i);
-		bool			signForm(Form &inst);	
+		bool			signForm(AForm &inst);
+		void			executeForm(AForm const &form);	
 
 		class GradeTooHighException : public std::exception
 		{
@@ -57,6 +58,15 @@ class Bureaucrat
 				virtual const char* what() const throw()
 				{
 					return ("Grade too low");
+				}
+		};
+
+		class UnsignedFormException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Form is unsigned");
 				}
 		};
 

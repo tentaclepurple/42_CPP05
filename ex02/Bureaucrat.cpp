@@ -86,7 +86,7 @@ void		Bureaucrat::downGrade(int i)
 	this->_grade += i;
 }
 
-bool		Bureaucrat::signForm(Form &inst)
+bool		Bureaucrat::signForm(AForm &inst)
 {
 	if (inst.getSigStatus())
 	{
@@ -104,7 +104,11 @@ bool		Bureaucrat::signForm(Form &inst)
 		return (false);
 	}
 	return (true);
+}
 
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & inst)

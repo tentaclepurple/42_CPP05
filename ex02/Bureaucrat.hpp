@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -36,14 +39,15 @@ class Bureaucrat
 		void			upGrade(void);
 		void			upGrade(int i);
 		void			downGrade(void);
-		void			downGrade(int i);	
+		void			downGrade(int i);
+		bool			signForm(Form &inst);	
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Invalid grade. Must be under 1");
+					return ("Grade too high");
 				}
 		};
 
@@ -52,13 +56,11 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Invalid grade. Must be above 150");
+					return ("Grade too low");
 				}
 		};
 
 };
-
-
 
 std::ostream &operator<<(std::ostream & o, const Bureaucrat & inst);
 

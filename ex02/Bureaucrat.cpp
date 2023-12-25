@@ -86,6 +86,27 @@ void		Bureaucrat::downGrade(int i)
 	this->_grade += i;
 }
 
+bool		Bureaucrat::signForm(Form &inst)
+{
+	if (inst.getSigStatus())
+	{
+		std::cout << "Bureaucrat " << this->_name;
+		std::cout << " couldn’t sign form " << inst.getName(); 
+		std::cout << " because it's already signed." << std::endl;
+		return (false);
+	}
+	else if (this->_grade > inst.getSignGrade())
+	{
+		std::cout << "bureaucrat " << this->_name;
+		std::cout << " couldn’t sign form " << inst.getName(); 
+		std::cout << " because he or she has not enough grade." << std::endl;
+		throw (GradeTooLowException());
+		return (false);
+	}
+	return (true);
+
+}
+
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & inst)
 {
 	o << inst.getName() << ", bureaucrat grade: " << inst.getGrade();

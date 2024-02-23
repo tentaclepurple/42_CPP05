@@ -16,14 +16,14 @@ Intern::Intern(void) {}
 
 Intern::Intern(Intern const &copy)
 {
-	*this = copy;
+	(void)copy;
 }
 
 Intern::~Intern(void) {}
 
 Intern	&Intern::operator =(Intern const &rhs)
 {
-	*this = rhs;
+	(void)rhs;
 	return (*this);
 }
 

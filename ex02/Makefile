@@ -6,7 +6,10 @@ CC = c++
 
 SRC_FILES = main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+            PresidentialPardonForm.cpp \
+            RobotomyRequestForm.cpp \
+            ShrubberyCreationForm.cpp \
+			AForm.cpp
 			
 OBJS = $(SRC_FILES:.cpp=.o)
 

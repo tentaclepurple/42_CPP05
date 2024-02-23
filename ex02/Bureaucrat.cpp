@@ -108,7 +108,22 @@ bool		Bureaucrat::signForm(AForm &inst)
 
 void	Bureaucrat::executeForm(AForm const &form)
 {
-	
+	if (form.getExecGrade() < this->_grade)
+	{
+		std::cout << "Bureaucrat " << this->_name;
+		std::cout << " execution grade issue. Exception: ";
+		throw(GradeTooLowException());
+	}
+
+	else if (!form.getSigStatus())
+	{
+		std::cout << "Exception: ";
+		throw (UnsignedFormException());
+	}
+	form.execute(*this);
+	std::cout << "Bureaucrat " << this->_name << " executed ";
+	std::cout << form.getName() << std::endl;
+
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & inst)

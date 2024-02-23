@@ -25,6 +25,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target):
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src):
+	AForm("Presidential PArdon Form", 25, 5),
 	_target(src._target)
 {
 	*this = src;
@@ -48,8 +49,8 @@ std::string	PresidentialPardonForm::getTarget(void) const
 
 void		PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	
+	(void)executor;
 	std::cout << this->_target;
-	std::cout << "has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 
 }

@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src):
-	AForm("Presidential PArdon Form", 145, 137),
+	AForm("Presidential Pardon Form", 145, 137),
 	_target(src._target)
 {
 	*this = src;
